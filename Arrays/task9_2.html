@@ -1,0 +1,26 @@
+<script>
+    var arrLength = prompt('Enter a size of the array:');
+  
+   if (arrLength !== null && arrLength !== '') {
+       arrLength = Number(arrLength);
+
+       if (!isNaN(arrLength) && arrLength > 0 && arrLength % 1 === 0) {
+           var arr = new Array(arrLength);
+
+           for (var index = 0; index < arrLength; index++) {
+               arr[index] = prompt('Enter an element of the array:');
+           }
+          
+           for (var index = arrLength - 2; index >= 0; index--) {
+               var elements = arr.splice(index, 1);
+               arr.push(elements[0]);
+           }
+           
+           alert(arr.join(' '));
+       } else {
+           alert('Invalid data!');
+       }
+   } else {
+       alert('Invalid data!');
+   }
+</script>

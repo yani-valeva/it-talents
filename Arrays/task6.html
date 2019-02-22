@@ -1,0 +1,48 @@
+<script>
+    var firstArrSize = prompt('Enter a size of the first array:');
+    var secondArrSize = prompt('Enter a size of the second array:');
+
+    if (firstArrSize !== null && firstArrSize !== '' && secondArrSize !== null && secondArrSize !== '') {
+        firstArrSize = Number(firstArrSize);
+        secondArrSize = Number(secondArrSize);
+        var isFirstSizeValid = (!isNaN(firstArrSize) && firstArrSize % 1 === 0 && firstArrSize >= 0);
+        var isSecondSizeValid = (!isNaN(secondArrSize) && secondArrSize % 1 === 0 && secondArrSize >= 0);
+
+        if (isFirstSizeValid && isSecondSizeValid) {
+           var arr1 = new Array(firstArrSize);
+           var arr2 = new Array(secondArrSize);
+           var areEqual = false;
+           var hasEqualLength = false;
+
+           for (var index = 0; index < firstArrSize; index++) {
+               arr1[index] = prompt('Enter an element of the first array:');
+           }
+           
+           for (var index = 0; index < secondArrSize; index++) {
+               arr2[index] = prompt('Enter an element of the second array:');
+           }
+
+           if (firstArrSize === secondArrSize) {
+               hasEqualLength = true;
+           }
+
+           if (hasEqualLength) {
+               areEqual = true;
+
+               for (var index = 0; index < firstArrSize; index++) {
+                   if (arr1[index] !== arr2[index]) {
+                       areEqual = false;
+                       break;
+                   }
+               }
+           }
+
+           console.log(areEqual ? 'The arrays are equal!' : 'The arrays are not equal!');
+           console.log(hasEqualLength ? 'The length of the arrays is same!' : 'The length of the arrays is not same!');
+        } else {
+            alert('Invalid data!');
+        }
+    } else {
+        alert('Invalid data!');
+    }
+</script>

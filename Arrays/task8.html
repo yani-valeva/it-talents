@@ -1,0 +1,49 @@
+<script>
+    var arrLength = prompt('Enter a size of the array:');
+
+    if (arrLength !== null && arrLength !== '') {
+        arrLength = Number(arrLength);
+
+        if (!isNaN(arrLength) && arrLength > 0 && arrLength % 1 === 0) {
+            var arr = new Array(arrLength);
+
+            for (var index = 0; index < arrLength; index++) {
+                arr[index] = prompt('Enter an element of the array:');
+            }
+
+            var count = 1;
+            var maxCount = 0;
+            var startIndex = 0;
+
+            for (var index = 0; index < arrLength - 1; index++) {
+                if (arr[index] === arr[index + 1]) {
+                    count++;
+                } else {
+                    if (maxCount < count) {
+                        maxCount = count;
+                        startIndex = index - count + 1;
+                    }
+
+                    count = 1;
+                }
+            }
+
+            if (maxCount < count) {
+                maxCount = count;
+                startIndex = index - count + 1;
+            }
+
+            var result = '';
+
+            for (var index = startIndex; index < startIndex + maxCount; index++) {
+                result += (index === startIndex) ? arr[index] : ' ' + arr[index];
+            }
+
+            alert('The maximal sequence is: ' + result);
+        } else {
+            alert('Invalid data!');
+        }
+    } else {
+        alert('Invalid data!');
+    }
+</script>

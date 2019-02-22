@@ -1,0 +1,50 @@
+<script>
+    var firstArrSize = prompt('Enter a size of the first array:');
+
+    if (firstArrSize !== null && firstArrSize !== '') {
+        firstArrSize = Number(firstArrSize);
+
+        if (!isNaN(firstArrSize) && firstArrSize > 0 && firstArrSize % 1 === 0) {
+            var arr1 = new Array(firstArrSize);
+            var arr2 = new Array(firstArrSize);
+
+            for (var index = 0; index < firstArrSize; index++) {
+                var element = prompt('Enter an array element that is number:');
+
+                if (element !== null && element !== '') {
+                    element = Number(element);
+                    
+                    if (!isNaN(element)) {
+                        arr1[index] = element;
+                    } else {
+                        alert('Invalid data!');
+                        break;
+                    }
+                } else {
+                    alert('Invalid data!');
+                    break;
+                }
+            }
+
+            for (var index = 0; index < firstArrSize; index++) {
+                if (index !== 0 && index !== firstArrSize - 1) {
+                    arr2[index] = arr1[index - 1] + arr1[index + 1];
+                }
+
+                if (index === 0) {
+                    arr2[index] = arr1[index + 1];
+                }
+
+                if (index === firstArrSize - 1) {
+                    arr2[index] = arr1[index - 1];
+                }
+            }
+
+            alert(`The new array is:{ ${arr2}}.`);
+        } else {
+            alert('Invalid data!');
+        }
+    } else {
+        alert('Invalid data!');
+    }
+</script>

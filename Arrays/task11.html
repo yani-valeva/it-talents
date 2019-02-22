@@ -1,0 +1,35 @@
+<script>
+    var arrLength = 7;
+    var arr = new Array(arrLength);
+
+    for (var index = 0; index <arrLength; index++) {
+        var currentNumber = prompt('Enter a number:');
+
+        if (currentNumber !== null && currentNumber !== '') {
+            currentNumber = Number(currentNumber);
+
+            if (!isNaN(currentNumber) && currentNumber % 1 === 0) {
+                arr[index] = currentNumber;
+            } else {
+                alert('Invalid data!');
+                break;
+            }
+        } else {
+            alert('Invalid data!');
+            break;
+        }
+    }
+
+    var count = 0;
+    var result = '';
+
+    for (var index = 0; index < arrLength; index++) {
+        if (arr[index] % 5 === 0 && arr[index] / 5 > 5) {
+            result += (result === '') ? arr[index] : ', ' + arr[index];
+            count++;
+        }
+    }
+
+    result += ' ' + count + ' numbers';
+    alert(result);
+</script>

@@ -1,0 +1,23 @@
+<script>
+    var number = prompt('Enter number:');
+
+    if (number !== null && number !== '') {
+        number = Number(number);
+
+        if (!isNaN(number) && number % 1 === 0) {
+            var arr = new Array(10);
+            arr[0] = number;
+            arr[1] = number;
+
+            for (var index = 2; index < 10; index++) {
+                arr[index] = arr[index - 1] + arr[index - 2];
+            }
+
+            alert(arr);
+        } else {
+            alert('Invalid data!');
+        }
+    } else {
+        alert('Invalid data!');
+    }
+</script>

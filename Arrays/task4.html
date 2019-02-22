@@ -1,0 +1,34 @@
+<script>
+    var size = prompt('Enter a size of the array:');
+
+    if (size !== null && size !== '') {
+        size = Number(size);
+        
+        if (!isNaN(size) && size > 0 && size % 1 === 0) {
+            var arr = new Array(size);
+            var isMirrored = true;
+
+            for (var index = 0; index < size; index++) {
+                arr[index] = prompt(`Enter element ${index + 1}:`);      
+            }
+
+            for (var index = 0; index < Math.floor(size / 2); index++) {
+                if (arr[index] !== arr[arr.length - index - 1]) {
+                    isMirrored = false;
+                }
+            }
+
+            if (isMirrored) {
+                alert('The array is mirrored!');
+            } else {
+                alert('The array is not mirrored!');
+            }
+
+
+        } else {
+            alert('Invalid data!');
+        }
+    } else {
+        alert('Invalid data!');
+    }
+</script>

@@ -1,0 +1,40 @@
+<script>
+    var arrLength = 7;
+    var arr = new Array(arrLength);
+    var sum = 0;
+
+    for (var index = 0; index < arrLength; index++) {
+        var currentNumber = prompt('Enter a number:');
+
+        if (currentNumber !== null && currentNumber !== '') {
+            currentNumber = Number(currentNumber);
+
+            if (!isNaN(currentNumber) && currentNumber % 1 === 0) {
+                arr[index] = currentNumber;
+                sum += currentNumber;
+            } else {
+                alert('Invalid data!');
+                break;
+            }
+        } else {
+            alert('Invalid data!');
+            break;
+        }
+    }
+
+    var average = sum / arrLength;
+    var closestValue = 1234567;
+    var difference = 1234567;
+    var indexOfValue = 0;
+
+    for (var index = 0; index < arrLength; index++) {
+        difference = (arr[index] > average) ? arr[index] - average : average - arr[index];
+
+        if (closestValue > difference) {
+            closestValue = difference;
+            indexOfValue = index;
+        }
+    }
+
+    alert(arr[indexOfValue]);
+</script>

@@ -1,0 +1,28 @@
+<script>
+    var number = prompt('Enter a number:');
+
+    if (number !== null && number !== '') {
+        number = Number(number);
+
+        if (!isNaN(number) && number % 1 === 0 && number >= 0) {
+            var binaryLength = number.toString(2).length;
+            var arr = new Array(binaryLength);
+            var arrIndex = 0;
+            for (var index = binaryLength - 1; index >= 0; index--) {
+                if ((number & (1 << index)) === 0) {
+                    arr[arrIndex] = 0
+                } else {
+                    arr[arrIndex] = 1;
+                }
+
+                arrIndex++;
+            }
+
+            alert(arr.join(''));
+        } else {
+            alert('Invalid data!');
+        }
+    } else {
+        alert('Invalid data!');
+    }
+</script>
