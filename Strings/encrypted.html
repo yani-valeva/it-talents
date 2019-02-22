@@ -1,0 +1,100 @@
+<script>
+    var word = prompt('Enter a word:').toLowerCase();
+    if ((word.length % 2) !== 0) {
+        word += 'q';
+    }
+
+    if (word !== null && word !== '') {
+        var size = 5;
+        var matrix = new Array(size);
+        var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p",
+            "q", "r", "s", "t", "u", "v", "w", "x", "y"];
+        var result = '';
+
+        for (var row = 0; row < size; row++) {
+            matrix[row] = new Array(size);
+
+            for (var col = 0; col < size; col++) {
+                matrix[row][col] = '';
+            }
+        }
+
+        for (var index = 0; index < alphabet.length; index++) {
+            var currentLetter = alphabet[index];
+            var randomIndex = Math.floor(Math.random() * 25);
+            var currentRow = Math.floor(randomIndex / size);
+            var currentCol = randomIndex % size;
+
+            while (matrix[currentRow][currentCol] !== '') {
+                randomIndex = Math.floor(Math.random() * 25);
+                currentRow = Math.floor(randomIndex / size);
+                currentCol = randomIndex % size;
+            }
+
+            matrix[currentRow][currentCol] = currentLetter;
+        }
+
+        console.log(matrix);
+        var encryptedWord = '';
+
+        for (var index = 0; index < word.length; index+=2) {
+            var charOne = word.charAt(index);
+            var charTwo = word.charAt(index + 1);
+            var charOneRow = -1;
+            var charOneCol = -1;
+            var charTwoRow = -1;
+            var charTwoCol = -1;
+            var findOne = false;
+            var findTwo = false;
+            
+            for (var row = 0; row < size; row++) {
+                for (var col = 0; col < size; col++) {
+                    if (matrix[row][col] === charOne) {
+                        charOneRow = row;
+                        charOneCol = col;
+                        findOne = true;
+                    }
+
+                    if (matrix[row][col] === charTwo) {
+                        charTwoRow = row;
+                        charTwoCol = col;
+                        findTwo = true;
+                    }
+
+                    if (findOne && findTwo) {
+                        break;
+                    }
+                }
+            }
+
+            if ((charOneRow === charTwoRow) && (charOneCol === charTwoCol)) {
+                charOneCol = ((charOneCol + 1) < size) ? charOneCol + 1 : 0;
+                encryptedWord += matrix[charOneRow][charOneCol] + matrix[charTwoRow][charOneCol];
+                continue;
+            }
+
+            if (charOneRow === charTwoRow) {
+                charOneCol = ((charOneCol + 1) < size) ? charOneCol + 1 : 0;
+                encryptedWord += matrix[charOneRow][charOneCol];
+                charTwoCol = ((charTwoCol + 1) < size) ? charTwoCol + 1 : 0;
+                encryptedWord += matrix[charTwoRow][charTwoCol];
+                continue;
+            }
+
+            if (charOneCol === charTwoCol) {
+                charOneRow = ((charOneRow + 1) < size) ? charOneRow + 1 : 0;
+                encryptedWord += matrix[charOneRow][charOneCol];
+                charTwoRow = ((charTwoRow + 1) < size) ? charTwoRow + 1 : 0;
+                encryptedWord += matrix[charTwoRow][charTwoCol];
+                continue;
+            }
+
+            encryptedWord += matrix[charOneRow][charTwoCol];
+            encryptedWord += matrix[charTwoRow][charOneCol];
+        }
+
+        console.log(encryptedWord);
+    } else {
+        alert('Invalid data!');
+    }
+</script>

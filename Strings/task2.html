@@ -1,0 +1,35 @@
+<script>
+    var word1 = prompt('Enter first text with length up to 10-20 symbols:');
+    var word2 = prompt('Enter second text with length up to 10-20 symbols:');
+
+    if (word1 !== null && word2 !== null && word1 !== '' && word2 !== '') {
+        if (word1.length <= 20 && word2.length <= 20) {
+            var start1 = word1.substring(0, 5);
+            var start2 = word2.substring(0, 5);
+            var end1 = word1.substring(5);
+            var end2 = word2.substring(5);
+            word1 = start2 + end1;
+            word2 = start1 + end2;
+
+            if (word1.length > word2.length) {
+                console.log('The length of the longer word is: ' + word1.length);
+                console.log('The longer word is: ' + word1);
+            }
+
+            if (word1.length < word2.length) {
+                console.log('The length of the longer word is: ' + word2.length);
+                console.log('The longer word is: ' + word2);
+            }
+
+            if (word1.length === word2.length) {
+                console.log('The words have same length: ' + word1.length);
+                console.log('The first new word is: ' + word1);
+                console.log('The second new word is: ' + word2);
+            }
+        } else {
+            alert('Invalid length!');
+        }
+    } else {
+        alert('Invalid data!');
+    }
+</script>

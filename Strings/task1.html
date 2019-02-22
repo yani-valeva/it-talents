@@ -1,0 +1,15 @@
+<script>
+    var word1 = prompt('Enter first text with length up to 40 symbols:');
+    var word2 = prompt('Enter second text with length up to 40 symbols:');
+
+    if (word1 !== null && word2 !== null && word1 !== '' && word2 !== '') {
+        if (word1.length <= 40 && word2.length <= 40) {
+            var result = word1.toUpperCase() + " " + word1.toLowerCase() + " " + word2.toUpperCase() + " " + word2.toLowerCase() + " ";
+            alert(result);
+        } else {
+            alert('Invalid length!');
+        }
+    } else {
+        alert('Invalid data!');
+    }
+</script>
