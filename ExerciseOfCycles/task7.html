@@ -1,0 +1,32 @@
+<script>
+    var a = prompt('Enter number \'a\' between -32768 and 32767:');
+
+    if (a !== null && a !== '') {
+        a = Number(a);
+        if (!isNaN(a) && a % 1 === 0 && a >= -32768 && a <= 32767) {
+            var b = prompt('Enter number \'b\' between 1 and 7:');
+            var c = prompt('Enter number \'c\' between 1 and 7:');
+
+            if (b !== null && b !== '' && c !== null && c !== '') {
+                b = Number(b);
+                c = Number(c);
+                var isCorrectB = !isNaN(b) && b % 1 === 0 && b >= 1 && b <= 7;
+                var isCorrectC = !isNaN(c) && c % 1 === 0 && c >= 1 && c <= 7;
+
+                if (isCorrectB && isCorrectC) {
+                    a = (a ^ (1 << (b - 1)));
+                    a = (a ^ (1 << (c - 1)));
+                    alert(a);
+                } else {
+                    alert('Check your data for number \'b\' and\\or number \'c\'!');
+                }
+            } else {
+                alert('Check your data for number \'b\' and\\or number \'c\'!');
+            }
+        } else {
+            alert('Invalid data for number \'a\'!');
+        }
+    } else {
+        alert('Invalid data for number \'a\'!');
+    }
+</script>

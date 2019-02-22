@@ -1,0 +1,23 @@
+<script>
+    var num = prompt('Enter number between 0 and 32767:');
+    
+    if (num !== null && num !== '') {
+        num = Number(num);
+        if (!isNaN(num) && num % 1 === 0 && num >= 0 && num <= 32767) {
+            var count = 0;
+            var numLengthInBinary = num.toString(2).length;
+
+            for (var i = 0; i < numLengthInBinary; i++) {
+                if ((num & (1 << i)) !== 0) {
+                    count += 1;
+                }
+            }
+
+            alert(count);
+        } else {
+            alert('Incorrect data!');
+        }
+    } else {
+        alert('Incorrect data!');
+    }
+</script>

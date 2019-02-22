@@ -1,0 +1,31 @@
+<script>
+    var num1 = prompt('Enter first number:');
+
+    if (num1 !== null && num1 !== '') {
+        num1 = Number(num1);
+        if (!isNaN(num1) && num1 % 1 === 0) {
+            var num2 = prompt('Enter second number:');
+
+            if (num2 !== null && num2 !== '') {
+                num2 = Number(num2);
+
+                if (!isNaN(num2) && num2 % 1 === 0) {
+                    var min = num1 <= num2 ? num1 : num2;
+                    var max = num1 >= num2 ? num1 : num2;
+                    
+                    for (var i = min; i <= max; i++) {
+                        console.log(i);
+                    }
+                } else {
+                    alert('Invalid data!');
+                }
+            } else {
+                alert('Invalid data!');
+            }
+        } else {
+            alert('Invalid data!');
+        }
+    } else {
+        alert('Invalid data!');
+    }
+</script>

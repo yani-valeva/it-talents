@@ -1,0 +1,23 @@
+<script>
+    let num1 = prompt('Enter first number:');
+    let num2 = prompt('Enter secons number:');
+
+    if (num1 !== null && num2 !== null && num1 !== '' && num2 !== '' && !isNaN(+num1) && !isNaN(+num2) && +num1 % 1 === 0 && +num2 % 1 === 0) {
+        num1 = +num1;
+        num2 = + num2;
+        let min = Math.min(num1, num2);
+        let max = Math.max(num1, num2);
+        function printNumbers(number1) {
+            if (number1 > max) {
+                return;
+            }
+
+            console.log(number1);
+            printNumbers(number1 + 1);
+        }
+
+        printNumbers(min);
+    } else {
+        alert('Invalid data!');
+    }
+</script>

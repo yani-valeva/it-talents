@@ -1,0 +1,19 @@
+<script>
+    let num = prompt('Enter a number:');
+    if (num !== null && num !== '' && !isNaN(+num) && +num % 1 === 0) {
+        num = +num;
+
+        function printSum(num) {
+            if (num < 1) {
+                return 0;
+            }
+
+            return num + printSum(num - 1);
+        }
+
+        let sum = printSum(num);
+        console.log(sum);
+    } else {
+        alert('Invalid data!');
+    }
+</script>

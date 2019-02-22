@@ -1,0 +1,11 @@
+.bestSelling {
+    border: 1px solid purple;
+    border-collapse: collapse;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.bestSelling tr td, .bestSelling tr th {
+    border: 1px solid purple;
+    border-collapse: collapse;
+}

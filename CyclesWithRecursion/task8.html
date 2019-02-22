@@ -1,0 +1,25 @@
+<script>
+    let number = prompt('Enter a number:');
+
+    if (number !== null && number !== '' && !isNaN(+number) && +number % 1 === 0) {
+        number = +number;
+
+        function getTable(rows, cols, start) {
+            if (rows < 1) {
+                return;
+            }
+
+            let result = '';
+            for (let col = 0; col < cols; col++) {
+                result += start;
+            }
+
+            console.log(result);
+            getTable(rows - 1, cols, start + 2);
+        }
+
+        getTable(number, number, number - 1);
+    } else {
+        alert('Invalid data!');
+    }
+</script>
