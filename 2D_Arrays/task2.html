@@ -1,0 +1,65 @@
+<script>
+    var size = prompt('Enter a size for the matrix:');
+    
+    if (size !== null && size !== '') {
+        size = Number(size);
+
+        if (!isNaN(size) && size > 0 && size % 1 === 0) {
+            var matrix = new Array(size);
+            var isInvalid = false;
+
+            for (var row = 0; row < size; row++) {
+                matrix[row] = new Array(size);
+                for (var col = 0; col < size; col++) {
+                    var currentNumber = prompt('Enter current number:');
+
+                    if (currentNumber !== null && currentNumber !== '') {
+                        currentNumber = Number(currentNumber);
+
+                        if (!isNaN(currentNumber)) {                                               
+                            matrix[row][col] = currentNumber;
+                        } else {
+                            alert('Invalid data!');
+                            isInvalid = true;
+                            break;
+                        }
+                    } else {
+                        alert('Invalid data!');
+                        isInvalid = true;
+                        break;
+                    }
+                 }
+
+                 if (isInvalid) {
+                     break;
+                 }
+            }
+
+            if (!isInvalid) {
+                var forwardDiagonal = [];
+            var backwardDiagonal = [];
+            var searchedCol = size;
+
+            for (var row = 0; row < size; row++) {
+                searchedCol--;
+                for (var col = 0; col < size; col++) {
+                    if (row === col) {
+                        backwardDiagonal.push(matrix[row][col]); 
+                    }
+
+                    if (col === searchedCol) {
+                        forwardDiagonal.push(matrix[row][col]);
+                    }
+                }
+            }
+
+            console.log(backwardDiagonal.join(' '));
+            console.log(forwardDiagonal.join(' '));
+            }
+        } else {
+            alert('Invalid data!');
+        }
+    } else {
+        alert('Invalid data!');
+    }
+</script>
