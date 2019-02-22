@@ -1,0 +1,22 @@
+<script>
+    var number = prompt('Enter number that is greater than 0:');
+
+    if (number !== null && number !== '') {
+        number = Number(number);
+        if (!isNaN(number) && number % 1 === 0 && number >= 1) {
+            var sum = 0;
+            var currentNumber = 1;
+
+            do {
+                sum += currentNumber;
+                currentNumber++;
+            } while (currentNumber <= number);
+
+            alert(sum);
+        } else {
+            alert('Invalid data!');
+        }
+    } else {
+        alert('Invalid data!');
+    }
+</script>

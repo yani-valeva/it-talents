@@ -1,0 +1,21 @@
+<script>
+    var number = prompt('Enter number:');
+
+    if (number !== null && number !== '') {
+        number = Number(number);
+        if (!isNaN(number) && number >= 0 && number % 1 === 0) {
+            var stars = 1;
+            var spaces = number - 1;
+
+            for (var row = 0; row < number; row++) {
+                console.log(' '.repeat(spaces) + '*'.repeat(stars));
+                stars += 2;
+                spaces -= 1;
+            }
+        } else {
+            alert('Incorrect data!');
+        }
+    } else {
+        alert('Incorrect data!');
+    }
+</script>

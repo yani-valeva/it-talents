@@ -1,0 +1,27 @@
+<script>
+    var num = prompt('Enter number between 10 and 99 inclusive:');
+    
+    if (num !== null && num !== '') {
+        num = Number(num);
+        if (!isNaN(num) && num % 1 === 0 && num >= 10 && num <= 99) {
+            var result = '';
+
+            while (num > 1) {
+                if (num % 2 === 0) {
+                    num = 0.5 * num;
+                    result += result === '' ? num : ` ${num}`;
+                } else {
+                    num = (3 * num) + 1;
+                    result += result === '' ? num : ` ${num}`;
+                }
+            }
+
+            alert(result + '.');
+        } else {
+            alert('Invalid data!');
+        }
+    } else {
+        alert('Invalid data!');
+    }
+
+</script>

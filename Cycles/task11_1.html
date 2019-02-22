@@ -1,0 +1,24 @@
+<script>
+    var number = prompt('Enter number:');
+
+    if (number !== null && number !== '') {
+        number = Number(number);
+        if (!isNaN(number) && number >= 0 && number % 1 === 0) {
+            var stars = 1;
+            var spaces = number - 1;
+            var triangle = '';
+
+            for (var row = 0; row < number; row++) {
+                triangle += ' '.repeat(spaces) + '*'.repeat(stars) + '\n';
+                stars += 2;
+                spaces -= 1;
+            }
+
+            alert(triangle);
+        } else {
+            alert('Incorrect data!');
+        }
+    } else {
+        alert('Incorrect data!');
+    }
+</script>

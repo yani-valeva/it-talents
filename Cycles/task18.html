@@ -1,0 +1,32 @@
+<script>
+    var num1 = prompt('Enter number between 1 and 9 inclusive:');
+
+    if (num1 !== null && num1 !== '') {
+        num1 = Number(num1);
+        if (!isNaN(num1) && num1 % 1 === 0 && num1 >= 1 && num1 <= 9) {
+            var num2 = prompt('Enter number between 1 and 9 inclusive:');
+            if (num2 !== null && num2 !== '') {
+                num2 = Number(num2);
+                if (!isNaN(num2) && num2 % 1 === 0 && num2 >= 1 && num2 <= 9) {
+                    var result = '';
+
+                    for (var i = 1; i <= num1; i++) {
+                        for (var j = 1; j <= num2; j++) {
+                            result += `${i} * ${j} = ${i * j};\n`;
+                        }
+                    }
+
+                    alert(result);
+                } else {
+                    alert('Incorrect data!');
+                }
+            } else {
+                alert('Incorrect data!');
+            }
+        } else {
+            alert('Incorrect data!');
+        }
+    } else {
+        alert('Incorrect data!');
+    }
+</script>

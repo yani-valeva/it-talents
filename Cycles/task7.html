@@ -1,0 +1,24 @@
+<script>
+    var number = prompt('Enter number:');
+    if (number !== null && number !== '') {
+        number = Number(number);
+        if(!isNaN(number) && number % 1 === 0 && number >= 1) {
+            var currentNumber = 3;
+            var result = '';
+            while (number >= 1) {                      
+                if (currentNumber % 3 === 0) {
+                    result += result === '' ? currentNumber : `,${currentNumber}`;
+                    number--;
+                }     
+                
+                currentNumber++; 
+            }
+
+            alert(result);
+        } else {
+            alert('Incorrect data!');
+        }
+    } else {
+        alert('Incorrect data!');
+    }
+</script>

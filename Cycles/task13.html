@@ -1,0 +1,30 @@
+<script>
+    var requestedSum = prompt('Enter sum between 2 and 27 inclusive:');
+
+    if (requestedSum !== null && requestedSum !== '') {
+        requestedSum = Number(requestedSum);
+        if (!isNaN(requestedSum) && requestedSum % 1 === 0 && requestedSum >= 2 && requestedSum <= 27) {
+            var firstDigit = 0;
+            var secondDigit = 0;
+            var thirdDigit = 0;
+            var result = '';
+
+            for (var i = 100; i <= 999; i++) {
+                firstDigit = Math.floor(i / 100) % 10;
+                secondDigit = Math.floor(i / 10) % 10;
+                thirdDigit = i % 10;
+
+                if (firstDigit + secondDigit + thirdDigit === requestedSum) {
+                    result += result === '' ? i: `, ${i}`;
+                }
+            }
+
+            alert(result + '.');
+
+        } else {
+            alert('You entered an incorrect sum!');
+        }
+    } else {
+        alert('Invalid data!')
+    }
+</script>

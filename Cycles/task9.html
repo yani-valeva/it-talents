@@ -1,0 +1,42 @@
+<script>
+    var num1 = prompt('Enter a:');
+
+    if (num1 !== null && num1 !== '') {
+        num1 = Number(num1);
+        if (!isNaN(num1) && num1 % 1 === 0) {
+            var num2 = prompt('Enter b:');
+            if (num2 !== null && num2 !== '') {
+                num2 = Number(num2);
+                if (!isNaN(num2) && num2 % 1 === 0) {
+                    var result = '';
+                    var sum = 0;
+                    var currentValue = 0;
+
+                    for (var i = num1; i <= num2; i++) {
+                        if (i % 3 === 0) {
+                            result += result === '' ? `skip ${i}` : `, skip ${i}`;
+                        } else {
+                            currentValue = Math.pow(i, 2);
+                            result += result === '' ? currentValue : `, ${currentValue}`;
+                            sum += currentValue;
+                        }
+
+                        if (sum > 200) {
+                            break;
+                        }
+                    }
+
+                    alert(result);
+                } else {
+                    alert('Incorrect data!');
+                }
+            } else {
+                alert('Incorrect data!');
+            }
+        } else {
+            alert('Incorrect data!');
+        }
+    } else {
+        alert('Incorrect data!');
+    }
+</script>

@@ -1,0 +1,35 @@
+<script>
+    var squareSide = prompt('Enter the side length of a square in interval from 3 to 20 inclusive:');
+
+    if (squareSide !== null && squareSide !== '') {
+        squareSide = Number(squareSide);
+        if (!isNaN(squareSide) && squareSide % 1 === 0 && squareSide >= 3 && squareSide <= 20) {
+            var sign = prompt('Enter a character from your keyboard:');
+            if (sign !== null && sign !== '') {
+                var square = '';
+
+                for (var row = 1; row <= squareSide; row++) {
+                    for (var col = 1; col <= squareSide; col++) {
+                        if (row === 1 || row === squareSide) {
+                            square += '*';
+                        } else {
+                            if (col === 1 || col === squareSide) {
+                                square += '*';
+                            } else {
+                                square += sign;
+                            }
+                        }
+                    }
+
+                    square += '\n';
+                }
+
+                alert(square);
+            }
+        } else {
+            alert('Invalid data!');
+        }
+    } else {
+        alert('Invalid data!');
+    }
+</script>

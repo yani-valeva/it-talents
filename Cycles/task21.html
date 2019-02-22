@@ -1,0 +1,81 @@
+<script>
+    var num = prompt('Enter number between 1 and 52 inclusive:');
+
+    if (num !== null && num !== '') {
+        num = Number(num);
+        if (!isNaN(num) && num % 1 === 0 && num >= 1 && num <= 52) {
+            var divisionResult = Math.floor(num / 4);
+            var remainder = num % 4;
+            var result = '';
+
+            if (remainder !== 0) {
+                divisionResult++;
+            }
+
+            switch (divisionResult) {
+                case 1:
+                    getCardType(1, 2, remainder, divisionResult);
+                case 2:
+                    getCardType(2, 3, remainder, divisionResult);
+                case 3:
+                    getCardType(3, 4, remainder, divisionResult);
+                case 4:
+                    getCardType(4, 5, remainder, divisionResult);
+                case 5:
+                    getCardType(5, 6, remainder, divisionResult);
+                case 6:
+                    getCardType(6, 7, remainder, divisionResult);
+                case 7:
+                    getCardType(7, 8, remainder, divisionResult);
+                case 8:
+                    getCardType(8, 9, remainder, divisionResult);
+                case 9:
+                    getCardType(9, 10, remainder, divisionResult);
+                case 10:
+                    getCardType(10, 'Вале', remainder, divisionResult);
+                case 11:
+                    getCardType(11, 'Дама', remainder, divisionResult);
+                case 12:
+                    getCardType(12, 'Поп', remainder, divisionResult);
+                case 13:
+                    getCardType(13, 'Асо', remainder, divisionResult);
+            }
+
+            alert(result);
+        } else {
+            alert('Incorrect data!');
+        }
+    } else {
+        alert('Incorrect data!');
+    }
+
+    function getCardType(caseValue, card, remaind, divRes) {
+        if (divisionResult === caseValue && remaind === 0) {
+            ret result === '' ? `${card} пика` : `, ${card} пика`;
+        }
+
+        if (divisionResult === caseValue && remaind === 1) {
+            result +=  result === '' ? `${card} спатия` : `, ${card} спатия`;
+            result += result === '' ? `${card} каро` : `, ${card} каро`;
+            result += result === '' ? `${card} купа` : `, ${card} купа`;
+        }
+
+        if (divisionResult === caseValue && remaind === 2) {
+            result += result === '' ? `${card} каро` : `, ${card} каро`;
+            result += result === '' ? `${card} купа` : `, ${card} купа`;
+            result += result === '' ? `${card} пика` : `, ${card} пика`;
+        }
+
+        if (divisionResult === caseValue && remaind === 3) {
+            result += result === '' ? `${card} купа` : `, ${card} купа`;
+            result += result === '' ? `${card} пика`: `, ${card} пика`;
+        }
+
+        if (divisionResult !== caseValue) {
+            result += result === '' ? `${card} спатия` : `, ${card} спатия`;
+            result += result === '' ? `${card} каро` : `, ${card} каро`;
+            result += result === '' ? `${card} купа` : `, ${card} купа`;
+            result += result === '' ? `${card} пика` : `, ${card} пика`;
+        }
+    }
+</script>

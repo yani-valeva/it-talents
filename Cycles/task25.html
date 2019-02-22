@@ -1,0 +1,21 @@
+<script>
+    var num = prompt('Enter number:');
+
+    if (num !== null && num !== '') {
+        num = Number(num);
+        if (!isNaN(num) && num % 1 === 0 && num > 0) {
+            var factorial = 1;
+
+            do {
+                factorial *= num;
+                num--;
+            } while (num > 1);
+
+            alert(factorial);
+        } else {
+            alert('Invalid data!');
+        }
+    } else {
+        alert('Invalid data!');
+    }
+</script>

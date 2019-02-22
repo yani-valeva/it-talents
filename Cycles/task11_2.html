@@ -1,0 +1,32 @@
+<script>
+    var number = prompt('Enter number:');
+
+    if (number !== null && number !== '') {
+        number = Number(number);
+        if (!isNaN(number) && number >= 0 && number % 1 === 0) {
+            var outerSpaces = number;
+            var innerSpaces = -1;
+            var triangle = '';
+
+            for (var row = 0; row < number; row++) {
+                if (row === 0) {
+                    triangle += ' '.repeat(outerSpaces) + '*\n';
+                } else {
+                    if (row === number - 1) {
+                        triangle += ' '.repeat(outerSpaces) + '*'.repeat(innerSpaces + 2);
+                    } else {
+                        triangle += ' '.repeat(outerSpaces) + '*' + ' '.repeat(innerSpaces) + '*\n';
+                    }
+                }
+
+                outerSpaces -= 1;
+                innerSpaces += 2;
+            }
+            alert(triangle);
+        } else {
+            alert('Incorrect data!');
+        }
+    } else {
+        alert('Incorrect data!');
+    }
+</script>
