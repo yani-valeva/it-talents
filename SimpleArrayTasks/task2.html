@@ -1,0 +1,35 @@
+<script>
+    var workers = new Array(10);
+    var salaries = new Array(10);
+
+    for (var index = 0; index < 10; index++) {
+        workers[index] = prompt('Enter a employee\'s name:');
+        salaries[index] = Number(prompt('Enter a employee\'s salary:'));
+    }
+
+    var minSalary = salaries[0];
+    var maxSalary = salaries[0];
+    var workerWithMaxSalary = workers[0];
+    var workerWithMinSalary = workers[0];
+    var sumOfSalaries = salaries[0];
+
+    for (var index = 1; index < 10; index++) {
+        if (minSalary > salaries[index]) {
+            minSalary = salaries[index];
+            workerWithMinSalary = workers[index];
+        }
+
+        if (maxSalary < salaries[index]) {
+            maxSalary = salaries[index];
+            workerWithMaxSalary = workers[index];
+        }
+
+        sumOfSalaries += salaries[index];
+    }
+
+    var averageOfSalaries = sumOfSalaries / salaries.length;
+    console.log(`The employee with the highest salary is: ${workerWithMaxSalary}. His/her salary is: ${maxSalary.toFixed(2)}.`);
+    console.log(`The employee with the lowest salary is: ${workerWithMinSalary}. His/her salary is: ${minSalary.toFixed(2)}.`);
+    console.log(`The sum of all salaries is: ${sumOfSalaries.toFixed(2)}.`);
+    console.log(`The average of all salaries is: ${averageOfSalaries.toFixed(2)}.`);
+</script>

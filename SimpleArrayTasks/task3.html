@@ -1,0 +1,62 @@
+<script>
+    var monthDays = Number(prompt('Enter how many days:'));
+    var temperatures = new Array(monthDays);
+    var sum = 0;
+    var countOfColdDays = 0;
+    var maxCountOfColdDays = 0;
+    var countOfColderDays = 1;
+    var maxCountOfColderDays = 1;
+
+    for (var day = 0; day < monthDays; day++) {
+        temperatures[day] = Number(prompt('Enter the temperature:'));
+        sum += temperatures[day];
+    }
+
+    var averageTemperature = sum / monthDays;
+    var indexOfStartColdDays = 0;
+    var indexOfStarsColderDays = 0
+
+    for (var index = 0; index < monthDays; index++) {
+        if (temperatures[index] < averageTemperature) {
+            countOfColdDays++;
+        } else {
+            if (maxCountOfColdDays < countOfColdDays) {
+                maxCountOfColdDays = countOfColdDays;
+                indexOfStartColdDays = index - maxCountOfColdDays;
+            }
+
+            countOfColdDays = 0;
+        }
+        
+        if (temperatures[index] > temperatures[index + 1] && index < monthDays - 1) {
+            countOfColderDays++;
+        } else {
+            if (maxCountOfColderDays < countOfColderDays) {
+                maxCountOfColderDays = countOfColderDays;
+                indexOfStarsColderDays = index + 1 - maxCountOfColderDays;
+            }
+
+            countOfColderDays = 1;
+        }
+    }
+
+    if (maxCountOfColdDays < countOfColdDays) {
+        maxCountOfColdDays = countOfColdDays;
+        indexOfStartColdDays = index - maxCountOfColdDays;
+    }
+
+    console.log(`The average temperature of the month is: ${averageTemperature.toFixed(2)}.`);
+    console.log(`The longest period of cold days is: ${maxCountOfColdDays}.`);
+    console.log('The temeperatures are:');
+
+    for (var index = indexOfStartColdDays; index < indexOfStartColdDays + maxCountOfColdDays; index++) {
+        console.log(temperatures[index]);
+    }
+
+    console.log(`The longest period of freezing is: ${maxCountOfColderDays}.`);
+    console.log('The temperatures are:');
+
+     for (var index = indexOfStarsColderDays; index < indexOfStarsColderDays + maxCountOfColderDays; index++) {
+        console.log(temperatures[index]);
+    }
+</script>
