@@ -1,0 +1,23 @@
+<div class="detail-container"> 
+    <h3>Name: {{d.name}}</h3>
+    <img width="50" src="{{d.image_url}}" />
+    <p>Liters: {{d.volume.value}}{{d.volume.unit}}</p>
+
+    <ul>
+        {{#each d.food_pairing}}
+        <li>
+            {{this}}
+        </li>
+        {{/each}}
+    </ul>
+
+    <ul>
+        {{#each d.ingredients.malt}}
+        <li>
+            <strong>{{name}}</strong>
+            <span>{{amount.value}}{{amount.unit}}</span>
+        </li>
+        {{/each}}
+    </ul>
+    <button class="btn" onclick="javascript:history.back();">Back</button>
+</div>

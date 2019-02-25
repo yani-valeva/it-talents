@@ -1,0 +1,78 @@
+header {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid black;
+}
+
+main {
+    margin-top: 10px; 
+}
+
+.beer-icon {
+    display: flex;
+    color: grey;
+}
+
+#link-container > a {
+    text-decoration: none;
+    padding: 0 10px;
+    font-size: 1em;
+}
+
+#link-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#link-container > a.active {
+    font-weight: bold;
+}
+
+.rnd-beer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.food-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+}
+
+.food-container fieldset {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.detail-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#selected {
+    color: red;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.sort-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px; 
+}
+
+.sort-container button {
+    margin-right: 10px;
+}

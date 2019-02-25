@@ -1,0 +1,54 @@
+<div id="beers-container">
+    <p style="display: none" id="selected"></p>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Picture</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each beers}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{description}}</td>
+                <td>
+                    <a class="beer-img" href="#page=details/{{id}}">
+                        <img width="50" src="{{image_url}}" />
+                    </a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+<div class="rnd-beer">
+    <button id="random-beer" class="btn">Get Random Beer</button>
+</div>
+<form action="" class="food-container">
+    <fieldset>
+        <input type="radio" name="food" value="chicken" id="chicken-rdb" />
+        <label for="chicken-rdb">Chicken</label>
+        <input type="radio" name="food" value="fish" id="fish-rdb" />
+        <label for="fish-rdb">Fish</label>
+        <input type="radio" name="food" value="potato" id="potato-rdb" />
+        <label for="potato-rdb">Potato</label>
+        <input type="radio" name="food" value="tomato" id="tomato-rdb" />
+        <label for="tomato-rdb">Tomato</label>
+        <input type="radio" name="food" value="pork" id="pork-rdb" />
+        <label for="pork-rdb">Pork</label>
+        <input type="radio" name="food" value="carrot" id="carrot-rdb" />
+        <label for="carrot-rdb">Carrot</label>
+        <button id="recommend-btn" class="btn">Recommend beer</button>
+    </fieldset>
+</form>
+<div class="sort-container">
+    <button data-val="asc" class="btn sort-btn">Sort By Name Asc</button>
+    <button data-val="desc" class="btn sort-btn">Sort By Name Desc</button>
+</div>
+<div id="link-container">
+    <a id="page-1" href="">1</a>
+    <a id="page-2" href="">2</a>
+    <a id="page-3" href="">3</a>
+</div>
