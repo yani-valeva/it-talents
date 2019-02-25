@@ -21,6 +21,7 @@ function homeController() {
             if (food) {
                 $('#selected').text(`Beers filtered by ${food}`);
                 $('#selected').show();
+                $(`.food-container input:radio[value="${food}"]`).attr('checked', true);
             }
 
             $(`#link-container a#page-${page}`).addClass('active');
@@ -32,7 +33,7 @@ function homeController() {
 
             $('#random-beer').on('click', function(event) {
                 event.preventDefault();
-                location.replace('#page=details');
+                location.assign('#page=details');
             });
 
             $('#recommend-btn').on('click', function(event) {
